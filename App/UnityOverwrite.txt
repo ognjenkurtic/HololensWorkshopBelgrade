@@ -5,13 +5,13 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-Workshop.sln: F365D47005AED6740A4AE9080F03331C
+Workshop.sln: 672AE04B7B0D4E0C064BC32744D06253
 GeneratedProjects\UWP\Assembly-CSharp\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
 GeneratedProjects\UWP\Assembly-CSharp-firstpass\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
 Workshop\App.cs: 6EE321D24E75D2CD624783919DB3EEB5
-Workshop\Package.appxmanifest: 39FC24DCFA0746553109CD66F19BCAEE
+Workshop\Package.appxmanifest: 7E12F2520F78DF02D76A7684599F0D51
 Workshop\project.json: 1D02BC64BAC0D041019673A1C4C51737
-Workshop\Workshop.csproj: 4F577906AD53C76F05C1758E5A353A99
+Workshop\Workshop.csproj: CEAFB44A40AA3262E871011AD075A5F9
 Workshop\Workshop.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
 Workshop\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
 Workshop\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084

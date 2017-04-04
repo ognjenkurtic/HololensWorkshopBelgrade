@@ -20,9 +20,6 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#FFFFFF" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="landscape" />
-          <uap:Rotation Preference="landscapeFlipped" />
-          <uap:Rotation Preference="portrait" />
-          <uap:Rotation Preference="portraitFlipped" />
         </uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
