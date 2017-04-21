@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class QuadCubeAnimationBehaviour : MonoBehaviour
 {
-
     public bool AnimTrigger;
     public Vector3 MovementDirection;
 
@@ -22,9 +21,13 @@ public class QuadCubeAnimationBehaviour : MonoBehaviour
 	        return;
 	    }
 
-        
-	    var position = gameObject.transform.position;
-	    position += MovementDirection * Time.deltaTime;
-	    gameObject.transform.position = position;
+        Animate();
+	}
+
+    public virtual void Animate()
+    {
+        var position = gameObject.transform.position;
+        position += MovementDirection * Time.deltaTime;
+        gameObject.transform.position = position;
     }
 }
