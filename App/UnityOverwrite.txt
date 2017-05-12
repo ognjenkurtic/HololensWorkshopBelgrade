@@ -5,14 +5,14 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-Workshop.sln: F365D47005AED6740A4AE9080F03331C
+Workshop.sln: modified
 GeneratedProjects\UWP\Assembly-CSharp\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
 GeneratedProjects\UWP\Assembly-CSharp-firstpass\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
 Workshop\App.cs: 6EE321D24E75D2CD624783919DB3EEB5
-Workshop\Package.appxmanifest: 39FC24DCFA0746553109CD66F19BCAEE
+Workshop\Package.appxmanifest: 4593BCAA2709E6ACB8E8B482A85F65C4
 Workshop\project.json: 1D02BC64BAC0D041019673A1C4C51737
-Workshop\Workshop.csproj: 4F577906AD53C76F05C1758E5A353A99
-Workshop\Workshop.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
+Workshop\Workshop.csproj: 65266BC6A541A4728F7F5F17EBF03BE5
+Workshop\Workshop.csproj.user: modified
 Workshop\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
 Workshop\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
 Workshop\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
