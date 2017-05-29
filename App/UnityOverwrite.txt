@@ -8,10 +8,10 @@
 Workshop.sln: modified
 GeneratedProjects\UWP\Assembly-CSharp\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
 GeneratedProjects\UWP\Assembly-CSharp-firstpass\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
-Workshop\App.cs: 6EE321D24E75D2CD624783919DB3EEB5
+Workshop\App.cs: FEF0F9A4F18B1B385CE47A3E05D8F870
 Workshop\Package.appxmanifest: 4593BCAA2709E6ACB8E8B482A85F65C4
 Workshop\project.json: 1D02BC64BAC0D041019673A1C4C51737
-Workshop\Workshop.csproj: 65266BC6A541A4728F7F5F17EBF03BE5
+Workshop\Workshop.csproj: modified
 Workshop\Workshop.csproj.user: modified
 Workshop\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
 Workshop\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084

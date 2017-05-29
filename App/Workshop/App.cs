@@ -55,6 +55,12 @@ namespace Workshop
 		public void SetWindow(CoreWindow coreWindow)
 		{
 			ApplicationView.GetForCurrentView().SuppressSystemOverlays = true;
+			if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+#pragma warning disable 4014
+			{
+				StatusBar.GetForCurrentView().HideAsync();
+			}
+#pragma warning restore 4014
 
 			m_AppCallbacks.SetCoreWindowEvents(coreWindow);
 			m_AppCallbacks.InitializeD3DWindow();
