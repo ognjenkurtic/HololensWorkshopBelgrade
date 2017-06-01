@@ -1,4 +1,6 @@
-﻿using HoloToolkit.Unity.InputModule;
+﻿using Assets.Interfaces;
+using Assets.Services;
+using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -8,13 +10,17 @@ namespace Assets.Scripts
         private const int NumberOfMoves = 100;
 
         private int _numberOfClicks;
-        private int _movesLeft;
-        private Vector3 _movementDirection;
 
         public QuadCubeAnimationBehaviour[] CubeAnimations;
 
         public GameObject AnchorGameObject;
 
+        private IMovementService _movementService;
+
+        void Awake()
+        {
+            _movementService = Registration.Resolve<IMovementService>();
+        }
 
         public void OnInputClicked(InputClickedEventData eventData)
         {
@@ -23,13 +29,7 @@ namespace Assets.Scripts
             switch (_numberOfClicks)
             {
                 case 1:
-                    var currentPosition = transform.position;
-                    var goalPosition = AnchorGameObject.transform.position;
-                    var dx = (goalPosition.x - currentPosition.x) / NumberOfMoves;
-                    var dy = (goalPosition.y - currentPosition.y) / NumberOfMoves;
-                    var dz = (goalPosition.z - currentPosition.z) / NumberOfMoves;
-                    _movementDirection = new Vector3(dx, dy, dz);
-                    _movesLeft = NumberOfMoves;
+                    _movementService.InitializeMovementTowardsPosition(gameObject.transform.position, NumberOfMoves, AnchorGameObject.transform.position);
                     return;
                 case 2:
                     AnimateExplosion();
@@ -44,26 +44,13 @@ namespace Assets.Scripts
         {
             for (var i = 0; i < CubeAnimations.Length; i++)
             {
-                CubeAnimations[i].AnimTrigger = true;
+                CubeAnimations[i].StartMovement();
             }
         }
 
         private void Update()
         {
-            if (!AnimateCube)
-            {
-                return;
-            }
-            
-            var position = gameObject.transform.position;
-            position += _movementDirection;
-            gameObject.transform.position = position;
-            _movesLeft--;
-        }
-
-        private bool AnimateCube
-        {
-            get { return _numberOfClicks == 1 && _movesLeft > 0; }
+            gameObject.transform.position = _movementService.PerformMove();
         }
     }
 }

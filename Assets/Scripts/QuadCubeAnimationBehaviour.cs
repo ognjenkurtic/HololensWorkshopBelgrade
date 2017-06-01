@@ -1,33 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Assets.Interfaces;
 using UnityEngine;
 
-public class QuadCubeAnimationBehaviour : MonoBehaviour
+namespace Assets.Scripts
 {
-    public bool AnimTrigger;
-    public Vector3 MovementDirection;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	    if (!AnimTrigger)
-	    {
-	        return;
-	    }
-
-        Animate();
-	}
-
-    public virtual void Animate()
+    public class QuadCubeAnimationBehaviour : MonoBehaviour
     {
-        var position = gameObject.transform.position;
-        position += MovementDirection * Time.deltaTime;
-        gameObject.transform.position = position;
+        private IMovementService _movementService;
+        protected bool ShouldMove;
+
+        public Vector3 MovementDirection;
+
+        void Awake()
+        {
+            _movementService = Registration.Resolve<IMovementService>();
+        }
+
+        public void StartMovement()
+        {
+            ShouldMove = true;
+            _movementService.InitializeMovementInGivenDirection(gameObject.transform.position, MovementDirection, Time.deltaTime);
+        }
+	
+        // Update is called once per frame
+        void Update ()
+        {
+            Animate();
+        }
+
+        public virtual void Animate()
+        {
+            if (!ShouldMove)
+            {
+                return;
+            }
+
+            gameObject.transform.position = _movementService.PerformMove();
+        }
     }
 }
