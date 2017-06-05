@@ -48,7 +48,7 @@ namespace Assets.Services
             _movementInitialized = true;
         }
 
-        public Vector3 PerformMove()
+        public Vector3? PerformMove()
         {
             if (ShouldMove)
             {
@@ -57,9 +57,11 @@ namespace Assets.Services
                 {
                     _movesLeft--;
                 }
+
+                return _currentPosition;
             }
 
-            return _currentPosition;
+            return null;
         }
 
         private bool ShouldMove

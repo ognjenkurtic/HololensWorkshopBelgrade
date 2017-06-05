@@ -131,11 +131,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Projects\HoloLens\WorkshopBelgrade\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj">
-      <Project>{5b43376a-3dbe-436c-a7e3-baeec8d9fbe0}</Project>
+      <Project>{2a5a9a38-2ec7-4dea-ace0-f2de7cd202e5}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\Assembly-UnityScript.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Boo.Lang">
+      <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\Boo.Lang.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityScript.Lang">
+      <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\UnityScript.Lang.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="WinRTLegacy">
@@ -148,10 +160,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\UnityEngine.HoloLens.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\Vuforia.UnityExtensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Networking">

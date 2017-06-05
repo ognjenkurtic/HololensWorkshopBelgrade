@@ -13,6 +13,7 @@ namespace Assets
     public class Registration : MonoBehaviour
     {
         private static readonly IDictionary<string, string> RegisteredTypes = new Dictionary<string, string>();
+        private static readonly IDictionary<string, object> RegisteredObjects = new Dictionary<string, object>();
 
         private void Awake()
         {
@@ -27,16 +28,24 @@ namespace Assets
         public static T Resolve<T>()
         {
             var destinationTypeName = typeof(T).FullName;
-            if (!RegisteredTypes.ContainsKey(destinationTypeName))
+
+            if (RegisteredObjects.ContainsKey(destinationTypeName))
             {
-                throw new Exception(string.Format("Type not registered: {0}", destinationTypeName));
+                return (T) RegisteredObjects[destinationTypeName];
             }
 
-            var sourceTypeName = RegisteredTypes[destinationTypeName];
+            if (RegisteredTypes.ContainsKey(destinationTypeName))
+            {
+                var sourceTypeName = RegisteredTypes[destinationTypeName];
 
-            var instance = Activator.CreateInstance(Assembly.GetExecutingAssembly().FullName, sourceTypeName).Unwrap();
-            // ReSharper disable once AssignNullToNotNullAttribute
-            return (T) instance;
+                // ReSharper disable once AssignNullToNotNullAttribute
+                var instance = Activator.CreateInstance(Type.GetType(sourceTypeName));
+
+                // ReSharper disable once AssignNullToNotNullAttribute
+                return (T) instance;
+            }
+
+            throw new Exception(string.Format("Type not registered: {0}", destinationTypeName));
         }
 
         public void RegisterType<TDestination, TSource>() where TSource : TDestination, new()
@@ -45,11 +54,30 @@ namespace Assets
             var sourceTypeName = typeof(TSource).FullName;
             if (RegisteredTypes.ContainsKey(destinationTypeName))
             {
-                RegisteredTypes[typeof(TDestination).FullName] = typeof(TDestination).FullName;
+                RegisteredTypes[destinationTypeName] = typeof(TDestination).FullName;
             }
             else
             {
                 RegisteredTypes.Add(destinationTypeName, sourceTypeName);
+            }
+        }
+
+        public void RegisterObjectOfType<TDestination>(object source)
+        {
+            var destinationTypeName = typeof(TDestination).FullName;
+
+            if (!(source is TDestination))
+            {
+                throw new Exception(string.Format("Given object is not assignable to {0}.", destinationTypeName));
+            }
+
+            if (RegisteredObjects.ContainsKey(destinationTypeName))
+            {
+                RegisteredObjects[destinationTypeName] = source;
+            }
+            else
+            {
+                RegisteredObjects.Add(destinationTypeName, source);
             }
         }
     }

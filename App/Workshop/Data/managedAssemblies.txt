@@ -1,6 +1,8 @@
 Assembly-CSharp.dll
+Assembly-UnityScript.dll
+Boo.Lang.dll
+UnityScript.Lang.dll
 UnityEngine.UI.dll
 UnityEngine.HoloLens.dll
-Vuforia.UnityExtensions.dll
 UnityEngine.Networking.dll
 UnityEngine.VR.dll

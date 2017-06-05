@@ -1,40 +1,42 @@
-﻿using Assets.Interfaces;
+﻿using Assets.Controllers;
+using Assets.Interfaces;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class QuadCubeAnimationBehaviour : MonoBehaviour
     {
-        private IMovementService _movementService;
-        protected bool ShouldMove;
-
         public Vector3 MovementDirection;
+        protected IMovementService MovementService;
+
+        public QuadCubeController QuadCubeController { get; private set; }
 
         void Awake()
         {
-            _movementService = Registration.Resolve<IMovementService>();
+            MovementService = Registration.Resolve<IMovementService>();
+            QuadCubeController = new QuadCubeController(MovementService, MovementDirection);
         }
 
-        public void StartMovement()
+        public virtual void StartMovement()
         {
-            ShouldMove = true;
-            _movementService.InitializeMovementInGivenDirection(gameObject.transform.position, MovementDirection, Time.deltaTime);
+            QuadCubeController.StartMovement();
         }
 	
         // Update is called once per frame
         void Update ()
         {
+            QuadCubeController.MyGameObjectPosition = gameObject.transform.position;
+            QuadCubeController.MovementSpeed = Time.deltaTime;
             Animate();
         }
 
         public virtual void Animate()
         {
-            if (!ShouldMove)
+            var position = MovementService.PerformMove();
+            if (position.HasValue)
             {
-                return;
+                gameObject.transform.position = position.Value;
             }
-
-            gameObject.transform.position = _movementService.PerformMove();
         }
     }
 }
