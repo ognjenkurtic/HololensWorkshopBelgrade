@@ -25,8 +25,6 @@ obj/
 *.csproj
 *.pidb
 *.suo
-/*.sln
-*.sln
 *.user
 *.unityproj
 *.ipch
@@ -39,3 +37,4 @@ obj/
 *.opendb
 WSATestCertificate.pfx
 WSATestCertificate.pfx.meta
+/WorkshopBelgrade.Editor.csproj
