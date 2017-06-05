@@ -12,7 +12,7 @@
     <AssemblyName>Workshop</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -147,7 +147,7 @@
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
-    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+    <SDKReference Include="WindowsMobile, Version=10.0.14393.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
@@ -180,6 +180,8 @@
     <Reference Include="WinRTLegacy">
       <HintPath>.\Unprocessed\WinRTLegacy.dll</HintPath>
     </Reference>
+    <Content Include="VuforiaWrapper.dll" />
+    <Content Include="VuforiaWrapper.pdb" Condition="Exists('VuforiaWrapper.pdb')" />
     <Reference Include="UnityEngine.UI">
       <HintPath>.\Unprocessed\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -188,11 +190,16 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>.\Unprocessed\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>.\Unprocessed\Vuforia.UnityExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>.\Unprocessed\UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Content Include="SharingClient.dll" />
     <Content Include="SharingClient.pdb" Condition="Exists('SharingClient.pdb')" />
+    <Content Include="Vuforia.dll" />
+    <Content Include="Vuforia.pdb" Condition="Exists('Vuforia.pdb')" />
     <Content Include="SpatialUnderstanding.dll" />
     <Content Include="SpatialUnderstanding.pdb" Condition="Exists('SpatialUnderstanding.pdb')" />
     <Content Include="PlaneFinding.dll" />
@@ -210,13 +217,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="C:\Users\vikr\Documents\HoloLens\Workshop\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj">
-      <Project>{af3ea718-2ea6-4158-8caa-f7d6fb6e468a}</Project>
+    <ProjectReference Include="C:\Projects\HoloLens\WorkshopBelgrade\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj">
+      <Project>{c5334780-652e-4723-aec8-455ce7d91364}</Project>
       <Name>Assembly-CSharp</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\vikr\Documents\HoloLens\Workshop\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj">
-      <Project>{d16c9f3a-8d2b-4197-8240-9732c1698f3d}</Project>
+    <ProjectReference Include="C:\Projects\HoloLens\WorkshopBelgrade\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj">
+      <Project>{312dae7e-81fd-4f67-9ecc-d0f51453111b}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
       <Private>False</Private>
     </ProjectReference>
@@ -263,6 +270,10 @@
   </PropertyGroup>
 
   <Target Name="BeforeResolveReferences" Condition="'$(BuildingProject)' == 'true'" > 
+        <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\VuforiaWrapper.dll" DestinationFiles="$(ProjectDir)VuforiaWrapper.dll" />
+            <Delete Files="$(ProjectDir)VuforiaWrapper.pdb" Condition="Exists('$(ProjectDir)VuforiaWrapper.pdb')" />
+            <Delete Files="$(ProjectDir)VuforiaWrapper.dll.mdb" Condition="Exists('$(ProjectDir)VuforiaWrapper.dll.mdb')" />
+            <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\VuforiaWrapper.pdb" DestinationFiles="$(ProjectDir)VuforiaWrapper.pdb" Condition="Exists('$(ProjectDir)Plugins\$(PlatformShortName)\VuforiaWrapper.pdb')" />
         <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\MicStreamSelector.dll" DestinationFiles="$(ProjectDir)MicStreamSelector.dll" />
             <Delete Files="$(ProjectDir)MicStreamSelector.pdb" Condition="Exists('$(ProjectDir)MicStreamSelector.pdb')" />
             <Delete Files="$(ProjectDir)MicStreamSelector.dll.mdb" Condition="Exists('$(ProjectDir)MicStreamSelector.dll.mdb')" />
@@ -271,6 +282,10 @@
             <Delete Files="$(ProjectDir)SharingClient.pdb" Condition="Exists('$(ProjectDir)SharingClient.pdb')" />
             <Delete Files="$(ProjectDir)SharingClient.dll.mdb" Condition="Exists('$(ProjectDir)SharingClient.dll.mdb')" />
             <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\SharingClient.pdb" DestinationFiles="$(ProjectDir)SharingClient.pdb" Condition="Exists('$(ProjectDir)Plugins\$(PlatformShortName)\SharingClient.pdb')" />
+        <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\Vuforia.dll" DestinationFiles="$(ProjectDir)Vuforia.dll" />
+            <Delete Files="$(ProjectDir)Vuforia.pdb" Condition="Exists('$(ProjectDir)Vuforia.pdb')" />
+            <Delete Files="$(ProjectDir)Vuforia.dll.mdb" Condition="Exists('$(ProjectDir)Vuforia.dll.mdb')" />
+            <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\Vuforia.pdb" DestinationFiles="$(ProjectDir)Vuforia.pdb" Condition="Exists('$(ProjectDir)Plugins\$(PlatformShortName)\Vuforia.pdb')" />
         <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\SpatialUnderstanding.dll" DestinationFiles="$(ProjectDir)SpatialUnderstanding.dll" />
             <Delete Files="$(ProjectDir)SpatialUnderstanding.pdb" Condition="Exists('$(ProjectDir)SpatialUnderstanding.pdb')" />
             <Delete Files="$(ProjectDir)SpatialUnderstanding.dll.mdb" Condition="Exists('$(ProjectDir)SpatialUnderstanding.dll.mdb')" />
@@ -297,7 +312,7 @@
            <RemoveDebuggableAttribute>False</RemoveDebuggableAttribute>
         </PropertyGroup>
         <Message Importance="high" Text="Running AssemblyConverter..." />
-        <Exec Command="&quot;$(UnityWSAToolsDir)AssemblyConverter.exe&quot; -platform=uap -lock=&quot;$(ProjectDir)project.lock.json&quot; -bits=$(UnityBits) -configuration=$(Configuration) -removeDebuggableAttribute=$(RemoveDebuggableAttribute) -uwpsdk=$(TargetPlatformVersion) -path=&quot;.&quot; -path=&quot;$(UnityWSAPlayerDir)Players\UAP\dotnet\$(PlatformTarget)\$(Configuration)&quot; &quot;$(ProjectDir)Assembly-CSharp.dll&quot; &quot;$(ProjectDir)Assembly-CSharp-firstpass.dll&quot; &quot;$(ProjectDir)UnityEngine.dll&quot; &quot;$(ProjectDir)UnityEngine.UI.dll&quot; &quot;$(ProjectDir)UnityEngine.HoloLens.dll&quot; &quot;$(ProjectDir)UnityEngine.Networking.dll&quot; &quot;$(ProjectDir)UnityEngine.VR.dll&quot;" />
+        <Exec Command="&quot;$(UnityWSAToolsDir)AssemblyConverter.exe&quot; -platform=uap -lock=&quot;$(ProjectDir)project.lock.json&quot; -bits=$(UnityBits) -configuration=$(Configuration) -removeDebuggableAttribute=$(RemoveDebuggableAttribute) -path=&quot;.&quot; -path=&quot;$(UnityWSAPlayerDir)Players\UAP\dotnet\$(PlatformTarget)\$(Configuration)&quot; &quot;$(ProjectDir)Assembly-CSharp.dll&quot; &quot;$(ProjectDir)Assembly-CSharp-firstpass.dll&quot; &quot;$(ProjectDir)UnityEngine.dll&quot; &quot;$(ProjectDir)UnityEngine.UI.dll&quot; &quot;$(ProjectDir)UnityEngine.HoloLens.dll&quot; &quot;$(ProjectDir)Vuforia.UnityExtensions.dll&quot; &quot;$(ProjectDir)UnityEngine.Networking.dll&quot; &quot;$(ProjectDir)UnityEngine.VR.dll&quot;" />
         <Message Importance="high" Text="AssemblyConverter done." />
         <Message Importance="high" Text="Modifying AppxPackagePayload" />
         <ItemGroup>
@@ -324,6 +339,14 @@
             <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.HoloLens.pdb'" />
             <AppxPackagePayload Include="$(ProjectDir)UnityEngine.HoloLens.pdb">
                 <TargetPath>UnityEngine.HoloLens.pdb</TargetPath>
+            </AppxPackagePayload>
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'Vuforia.UnityExtensions.dll'" />
+            <AppxPackagePayload Include="$(ProjectDir)Vuforia.UnityExtensions.dll">
+                <TargetPath>Vuforia.UnityExtensions.dll</TargetPath>
+            </AppxPackagePayload>
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'Vuforia.UnityExtensions.pdb'" />
+            <AppxPackagePayload Include="$(ProjectDir)Vuforia.UnityExtensions.pdb">
+                <TargetPath>Vuforia.UnityExtensions.pdb</TargetPath>
             </AppxPackagePayload>
             <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.Networking.dll'" />
             <AppxPackagePayload Include="$(ProjectDir)UnityEngine.Networking.dll">

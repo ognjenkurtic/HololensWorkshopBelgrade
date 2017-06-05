@@ -51,6 +51,7 @@ namespace HoloToolkit.Unity
         /// <param name="anchorStore">The WorldAnchorStore to cache.</param>
         private void AnchorStoreReady(WorldAnchorStore anchorStore)
         {
+            print("Anchor store ready");
             AnchorStore = anchorStore;
         }
 
