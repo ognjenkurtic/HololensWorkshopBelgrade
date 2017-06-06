@@ -9,5 +9,9 @@ namespace Assets.Interfaces
         void InitializeMovementInGivenDirection(Vector3 startingPosition, Vector3 movementDirection, float movementSpeed);
 
         Vector3? PerformMove();
+
+        Vector3? ChangeScale();
+
+        void InitializeScaleChange(Vector3 startingScale);
     }
 }

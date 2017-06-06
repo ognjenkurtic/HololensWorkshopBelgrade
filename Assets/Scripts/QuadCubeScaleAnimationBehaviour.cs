@@ -1,34 +1,36 @@
-﻿using UnityEngine;
+﻿using Assets.Controllers;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class QuadCubeScaleAnimationBehaviour : QuadCubeAnimationBehaviour
     {
-        private bool _shouldMove;
-
-        public override void StartMovement()
+        private QuadCubeScaleController QuadCubeScaleController
         {
-            base.StartMovement();
+            get { return (QuadCubeScaleController) QuadCubeController; }
+        }
 
-            _shouldMove = true;
+        protected override void SetControllerProperties()
+        {
+            base.SetControllerProperties();
+            QuadCubeScaleController.CurrentScale = gameObject.transform.localScale;
         }
 
         public override void Animate()
         {
-            if (_shouldMove)
-            { 
-                base.Animate();
+            base.Animate();
 
-            var scale = gameObject.transform.localScale;
+            var newScale = MovementService.ChangeScale();
 
-            scale -= new Vector3(0.005f, 0.005f, 0.005f);
-            if (scale == Vector3.zero)
+            if (newScale.HasValue)
             {
-                _shouldMove = false;
+                gameObject.transform.localScale = newScale.Value;
             }
+        }
 
-            gameObject.transform.localScale = scale;
-                }
+        protected override void CreateController()
+        {
+            QuadCubeController = new QuadCubeScaleController(MovementService, MovementDirection);
         }
     }
 }

@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641216, b: 0.5748169, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -107,7 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: 0, z: 0}
 --- !u!1 &127245830 stripped
 GameObject:
@@ -125,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: 1, z: 0}
 --- !u!1 &305266822 stripped
 GameObject:
@@ -143,7 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: -1, z: 1}
 --- !u!1 &308329217 stripped
 GameObject:
@@ -161,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: 1, z: 1}
 --- !u!1001 &325002114
 Prefab:
@@ -226,7 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: -1, z: 0}
 --- !u!1 &403859823 stripped
 GameObject:
@@ -244,7 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: -1, z: 1}
 --- !u!1 &549739551 stripped
 GameObject:
@@ -262,30 +256,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: 0, z: 1}
 --- !u!1 &604006360 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1936939046093660, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
     type: 2}
   m_PrefabInternal: {fileID: 788506238}
---- !u!95 &604006361
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 604006360}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 93bda5c1281088a4db1bad771480d0d8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &604006362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: -1, z: -1}
 --- !u!1001 &628170645
 Prefab:
@@ -386,7 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: 0, z: 0}
 --- !u!1 &697950081 stripped
 GameObject:
@@ -432,6 +406,7 @@ MonoBehaviour:
   - {fileID: 1439211716}
   - {fileID: 1675413637}
   - {fileID: 308329219}
+  AnchorGameObject: {fileID: 0}
 --- !u!65 &697950083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -594,6 +569,11 @@ Prefab:
     - {fileID: 64319445637338848, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
     - {fileID: 64762790147337656, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
     - {fileID: 64870022356995154, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
+    - {fileID: 114896245952309664, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
+    - {fileID: 114328991465062716, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
+    - {fileID: 114282274873500732, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
+    - {fileID: 65411937430320230, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
+    - {fileID: 114067597515726842, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &790137806 stripped
@@ -612,7 +592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: 0, z: -1}
 --- !u!1 &790525215 stripped
 GameObject:
@@ -630,7 +609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: 0, z: 1}
 --- !u!1 &798887202
 GameObject:
@@ -688,7 +666,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 798887202}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.4082179, y: -0.23456971, z: 0.10938164, w: 0.8754262}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -753,7 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: 1, z: 0}
 --- !u!1 &1112350320 stripped
 GameObject:
@@ -771,7 +748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1272435361 stripped
 GameObject:
@@ -789,7 +765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: 1, z: -1}
 --- !u!1 &1301366996 stripped
 GameObject:
@@ -807,7 +782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: 0, z: -1}
 --- !u!1 &1304768695 stripped
 GameObject:
@@ -825,7 +799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: -1, z: -1}
 --- !u!1 &1343920966 stripped
 GameObject:
@@ -843,7 +816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: -1, z: 0}
 --- !u!1 &1390141746 stripped
 GameObject:
@@ -861,7 +833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: 1, z: -1}
 --- !u!1 &1399561188 stripped
 GameObject:
@@ -879,7 +850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: -1, z: -1}
 --- !u!1 &1439211714 stripped
 GameObject:
@@ -897,7 +867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: 1, z: 1}
 --- !u!1 &1575150040 stripped
 GameObject:
@@ -915,8 +884,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: -1, z: 1}
+--- !u!1 &1641877757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1641877759}
+  - component: {fileID: 1641877758}
+  m_Layer: 0
+  m_Name: Registration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1641877758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641877757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6889ed1930622d47b73334edcc0c977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1641877759
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641877757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3030345, y: 0.35281295, z: 0.85697395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649727968 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1257006504970680, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
@@ -933,7 +941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: -1, z: 0}
 --- !u!1 &1675413635 stripped
 GameObject:
@@ -951,7 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: 1, z: 1}
 --- !u!1 &1686620188 stripped
 GameObject:
@@ -969,7 +975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: 0, z: -1}
 --- !u!1 &1753978973 stripped
 GameObject:
@@ -987,7 +992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: -1, y: 0, z: 1}
 --- !u!1 &1797224013 stripped
 GameObject:
@@ -1005,7 +1009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 1, y: 1, z: -1}
 --- !u!1 &1844723557 stripped
 GameObject:
@@ -1023,5 +1026,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c383685f85a37a4f9061f7fde95fcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimTrigger: 0
   MovementDirection: {x: 0, y: 1, z: 0}

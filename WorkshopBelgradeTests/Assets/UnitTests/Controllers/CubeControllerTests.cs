@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using Assets;
-using Assets.Controllers;
+﻿using Assets.Controllers;
 using Assets.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -23,7 +20,7 @@ namespace WorkshopBelgradeTests.Assets.UnitTests.Controllers
             var movementServiceMock = new Mock<IMovementService>();
             var movementService = movementServiceMock.Object;
 
-            var cubeController = new CubeController(numberOfMoves, movementService, Enumerable.Empty<QuadCubeController>().ToArray());
+            var cubeController = new CubeController(numberOfMoves, movementService);
 
             // When
             cubeController.MyGameObjectPosition = startingPosition;
@@ -46,11 +43,11 @@ namespace WorkshopBelgradeTests.Assets.UnitTests.Controllers
             const float movementSpeed = 5f;
 
             var quadCubeController = new QuadCubeController(movementService, movementDirection);
-            var quadCubeControllers = new[] { quadCubeController };
 
-            var cubeController = new CubeController(100, movementService, quadCubeControllers);
+            var cubeController = new CubeController(100, movementService);
 
             // When
+            cubeController.QuadCubeControllers = new[] { quadCubeController };
             quadCubeController.MovementSpeed = movementSpeed;
             quadCubeController.MyGameObjectPosition = startingPosition;
             cubeController.Click();

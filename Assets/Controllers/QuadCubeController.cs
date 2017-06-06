@@ -7,7 +7,7 @@ namespace Assets.Controllers
     public class QuadCubeController
     {
         private readonly Vector3 _movementDirection;
-        private readonly IMovementService _movementService;
+        protected readonly IMovementService MovementService;
 
         public Vector3 MyGameObjectPosition { set; private get; }
 
@@ -16,13 +16,28 @@ namespace Assets.Controllers
 
         public QuadCubeController(IMovementService movementService, Vector3 movementDirection)
         {
-            _movementService = movementService;
+            MovementService = movementService;
             _movementDirection = movementDirection;
         }
 
-        public void StartMovement()
+        public virtual void StartMovement()
         {
-            _movementService.InitializeMovementInGivenDirection(MyGameObjectPosition, _movementDirection, MovementSpeed);
+            MovementService.InitializeMovementInGivenDirection(MyGameObjectPosition, _movementDirection, MovementSpeed);
+        }
+    }
+
+    public class QuadCubeScaleController : QuadCubeController
+    {
+        public Vector3 CurrentScale { set; private get; }
+
+        public QuadCubeScaleController(IMovementService movementService, Vector3 movementDirection) : base(movementService, movementDirection)
+        {
+        }
+
+        public override void StartMovement()
+        {
+            base.StartMovement();
+            MovementService.InitializeScaleChange(CurrentScale);
         }
     }
 }

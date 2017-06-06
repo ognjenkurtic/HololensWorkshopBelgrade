@@ -21,7 +21,7 @@ namespace Assets.Scripts
         void Awake()
         {
             _movementService = Registration.Resolve<IMovementService>();
-            _cubeController = new CubeController(NumberOfMoves, _movementService, CubeAnimations.Select(c => c.QuadCubeController).ToArray());
+            _cubeController = new CubeController(NumberOfMoves, _movementService);
         }
 
         public void OnInputClicked(InputClickedEventData eventData)
@@ -31,14 +31,24 @@ namespace Assets.Scripts
 
         private void Update()
         {
-            _cubeController.MyGameObjectPosition = gameObject.transform.position;
-            _cubeController.AnchorGameObjectPosition = AnchorGameObject.transform.position;
+            SetControllerProperties();
 
             var position = _movementService.PerformMove();
             if (position.HasValue)
             {
                 gameObject.transform.position = position.Value;
             }
+        }
+
+        private void SetControllerProperties()
+        {
+            _cubeController.MyGameObjectPosition = gameObject.transform.position;
+            if (AnchorGameObject != null)
+            {
+                _cubeController.AnchorGameObjectPosition = AnchorGameObject.transform.position;
+            }
+
+            _cubeController.QuadCubeControllers = CubeAnimations.Select(a => a.QuadCubeController).ToArray();
         }
     }
 }

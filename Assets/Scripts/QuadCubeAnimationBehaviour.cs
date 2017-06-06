@@ -9,25 +9,30 @@ namespace Assets.Scripts
         public Vector3 MovementDirection;
         protected IMovementService MovementService;
 
-        public QuadCubeController QuadCubeController { get; private set; }
+        public QuadCubeController QuadCubeController { get; protected set; }
 
         void Awake()
         {
             MovementService = Registration.Resolve<IMovementService>();
+            CreateController();
+        }
+
+        protected virtual void CreateController()
+        {
             QuadCubeController = new QuadCubeController(MovementService, MovementDirection);
         }
 
-        public virtual void StartMovement()
-        {
-            QuadCubeController.StartMovement();
-        }
-	
         // Update is called once per frame
-        void Update ()
+        protected void Update ()
+        {
+            SetControllerProperties();
+            Animate();
+        }
+
+        protected virtual void SetControllerProperties()
         {
             QuadCubeController.MyGameObjectPosition = gameObject.transform.position;
             QuadCubeController.MovementSpeed = Time.deltaTime;
-            Animate();
         }
 
         public virtual void Animate()

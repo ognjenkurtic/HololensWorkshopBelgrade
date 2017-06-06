@@ -22,6 +22,9 @@ namespace Assets.Services
 
         private MovementType _movementType;
 
+        private Vector3 _currentScale;
+        private bool _scaleChangeInitialized;
+
         public void InitializeMovementTowardsPosition(Vector3 startingPosition, int numberOfMoves, Vector3 targetPosition)
         {
             _currentPosition = startingPosition;
@@ -66,7 +69,32 @@ namespace Assets.Services
 
         private bool ShouldMove
         {
-            get { return _movementInitialized && (_movementType == MovementType.WithGivenDirection || _movesLeft > 0); }
+            get { return _movementInitialized && 
+                         (_movementType == MovementType.WithGivenDirection || _movesLeft > 0) &&
+                         (!_scaleChangeInitialized || CurrentScaleIsAboveZero); }
+        }
+
+        private bool CurrentScaleIsAboveZero
+        {
+            get { return _currentScale.x >= 0 && _currentScale.y >= 0 && _currentScale.z >= 0; }
+        }
+
+        public Vector3? ChangeScale()
+        {
+            if (ShouldMove)
+            {
+                _currentScale -= new Vector3(0.005f, 0.005f, 0.005f);
+
+                return _currentScale;
+            }
+
+            return null;
+        }
+
+        public void InitializeScaleChange(Vector3 startingScale)
+        {
+            _scaleChangeInitialized = true;
+            _currentScale = startingScale;
         }
     }
 }
