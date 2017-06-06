@@ -8,7 +8,6 @@ namespace Assets.Controllers
     {
         private readonly int _numberOfMoves;
         private readonly IMovementService _movementService;
-        private readonly QuadCubeController[] _quadCubeControllers;
 
         private int _numberOfClicks;
 
@@ -16,11 +15,12 @@ namespace Assets.Controllers
 
         public Vector3 AnchorGameObjectPosition { private get; set; }
 
-        public CubeController(int numberOfMoves, IMovementService movementService, QuadCubeController[] quadCubeControllers)
+        public QuadCubeController[] QuadCubeControllers { private get; set; }
+
+        public CubeController(int numberOfMoves, IMovementService movementService)
         {
             _numberOfMoves = numberOfMoves;
             _movementService = movementService;
-            _quadCubeControllers = quadCubeControllers;
         }
 
         public void Click()
@@ -48,9 +48,9 @@ namespace Assets.Controllers
 
         private void AnimateExplosion()
         {
-            for (var i = 0; i < _quadCubeControllers.Length; i++)
+            for (var i = 0; i < QuadCubeControllers.Length; i++)
             {
-                _quadCubeControllers[i].StartMovement();
+                QuadCubeControllers[i].StartMovement();
 
             }
         }
