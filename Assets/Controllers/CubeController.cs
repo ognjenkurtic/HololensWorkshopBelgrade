@@ -60,6 +60,7 @@ namespace Assets.Controllers
             for (var i = 0; i < TextControllers.Length; i++)
             {
                 TextControllers[i].StartAnimation();
+                TextControllers[i].ResizeColider();
             }
         }
     }
