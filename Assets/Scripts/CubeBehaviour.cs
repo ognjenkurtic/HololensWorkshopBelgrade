@@ -11,12 +11,10 @@ namespace Assets.Scripts
         private const int NumberOfMoves = 100;
 
         public QuadCubeAnimationBehaviour[] CubeAnimations;
-
         public GameObject AnchorGameObject;
-
         private IMovementService _movementService;
-
         private CubeController _cubeController;
+        public TextBehaviour[] TextObjects;
 
         void Awake()
         {
@@ -49,6 +47,7 @@ namespace Assets.Scripts
             }
 
             _cubeController.QuadCubeControllers = CubeAnimations.Select(a => a.QuadCubeController).ToArray();
+            _cubeController.TextControllers = TextObjects.Select(x => x.TextController).ToArray();
         }
     }
 }
