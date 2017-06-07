@@ -18,6 +18,8 @@ namespace Assets.Controllers
 
         public TextController[] TextControllers { private get; set; }
 
+        public AudioSource AudioSource { private get; set; }
+
         public CubeController(int numberOfMoves, IMovementService movementService)
         {
             _numberOfMoves = numberOfMoves;
@@ -48,6 +50,8 @@ namespace Assets.Controllers
 
         private void AnimateExplosion()
         {
+            AudioSource.Play();
+
             for (var i = 0; i < QuadCubeControllers.Length; i++)
             {
                 QuadCubeControllers[i].StartMovement();
