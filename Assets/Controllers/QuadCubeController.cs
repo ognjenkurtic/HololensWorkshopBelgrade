@@ -22,22 +22,10 @@ namespace Assets.Controllers
 
         public virtual void StartMovement()
         {
-            MovementService.InitializeMovementInGivenDirection(MyGameObjectPosition, _movementDirection, MovementSpeed);
-        }
-    }
-
-    public class QuadCubeScaleController : QuadCubeController
-    {
-        public Vector3 CurrentScale { set; private get; }
-
-        public QuadCubeScaleController(IMovementService movementService, Vector3 movementDirection) : base(movementService, movementDirection)
-        {
-        }
-
-        public override void StartMovement()
-        {
-            base.StartMovement();
-            MovementService.InitializeScaleChange(CurrentScale);
+            if (MovementService != null)
+            {
+                MovementService.InitializeMovementInGivenDirection(MyGameObjectPosition, _movementDirection, MovementSpeed);
+            }
         }
     }
 }

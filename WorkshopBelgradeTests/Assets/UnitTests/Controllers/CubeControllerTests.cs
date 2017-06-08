@@ -1,4 +1,5 @@
-﻿using Assets.Controllers;
+﻿using System.Security.Cryptography.X509Certificates;
+using Assets.Controllers;
 using Assets.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -20,7 +21,7 @@ namespace WorkshopBelgradeTests.Assets.UnitTests.Controllers
             var movementServiceMock = new Mock<IMovementService>();
             var movementService = movementServiceMock.Object;
 
-            var cubeController = new CubeController(numberOfMoves, movementService);
+            var cubeController = new CubeController(numberOfMoves, movementService, null, null);
 
             // When
             cubeController.MyGameObjectPosition = startingPosition;
@@ -32,7 +33,7 @@ namespace WorkshopBelgradeTests.Assets.UnitTests.Controllers
         }
 
         [TestMethod]
-        public void GivenCube_WhenClickedForTheSecondTime_ThenExplosionInitialized()
+        public void GivenCube_WhenClickedForTheSecondTime_ThenExplosionMovementInitialized()
         {
             // Given
             var movementServiceMock = new Mock<IMovementService>();
@@ -44,7 +45,7 @@ namespace WorkshopBelgradeTests.Assets.UnitTests.Controllers
 
             var quadCubeController = new QuadCubeController(movementService, movementDirection);
 
-            var cubeController = new CubeController(100, movementService);
+            var cubeController = new CubeController(100, movementService, null, null);
 
             // When
             cubeController.QuadCubeControllers = new[] { quadCubeController };
@@ -55,6 +56,23 @@ namespace WorkshopBelgradeTests.Assets.UnitTests.Controllers
 
             // Then
             movementServiceMock.Verify(x => x.InitializeMovementInGivenDirection(startingPosition, movementDirection, movementSpeed));
+        }
+
+        [TestMethod]
+        public void GivenCubeController_WhenClickedForTheSecondTime_ThenSoundPlayed()
+        {
+            // Given
+            var soundServiceMock = new Mock<ISoundService>();
+            var soundService = soundServiceMock.Object;
+
+            var cubeController = new CubeController(100, null, soundService, null);
+
+            // When
+            cubeController.Click();
+            cubeController.Click();
+
+            // Then
+            soundServiceMock.Verify(x => x.PlaySound());
         }
     }
 }

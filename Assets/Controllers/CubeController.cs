@@ -1,5 +1,4 @@
 ﻿using Assets.Interfaces;
-using Assets.Scripts;
 using UnityEngine;
 
 namespace Assets.Controllers
@@ -8,6 +7,8 @@ namespace Assets.Controllers
     {
         private readonly int _numberOfMoves;
         private readonly IMovementService _movementService;
+        private readonly ISoundService _soundService;
+        private readonly ISmokeService _smokeService;
         private int _numberOfClicks;
 
         public Vector3 MyGameObjectPosition { private get; set; }
@@ -18,12 +19,28 @@ namespace Assets.Controllers
 
         public TextController[] TextControllers { private get; set; }
 
-        public AudioSource AudioSource { private get; set; }
+        public AudioSource AudioSource
+        {
+            set
+            {
+                _soundService.SetAudioSource(value);
+            }
+        }
 
-        public CubeController(int numberOfMoves, IMovementService movementService)
+        public GameObject SmokePrefab
+        {
+            set
+            {
+                _smokeService.SetSmokeObject(value);
+            }
+        }
+
+        public CubeController(int numberOfMoves, IMovementService movementService, ISoundService soundService, ISmokeService smokeService)
         {
             _numberOfMoves = numberOfMoves;
             _movementService = movementService;
+            _soundService = soundService;
+            _smokeService = smokeService;
         }
 
         public void Click()
@@ -45,22 +62,39 @@ namespace Assets.Controllers
 
         private void InitializeMovement()
         {
-            _movementService.InitializeMovementTowardsPosition(MyGameObjectPosition, _numberOfMoves, AnchorGameObjectPosition);
+            if (_movementService != null)
+            {
+                _movementService.InitializeMovementTowardsPosition(MyGameObjectPosition, _numberOfMoves, AnchorGameObjectPosition);
+            }
         }
 
         private void AnimateExplosion()
         {
-            AudioSource.Play();
-
-            for (var i = 0; i < QuadCubeControllers.Length; i++)
+            if (_soundService != null)
             {
-                QuadCubeControllers[i].StartMovement();
+                _soundService.PlaySound();
             }
 
-            for (var i = 0; i < TextControllers.Length; i++)
+            if (_smokeService != null)
             {
-                TextControllers[i].StartAnimation();
-                TextControllers[i].ResizeColider();
+                _smokeService.PlaySmoke(MyGameObjectPosition);
+            }
+
+            if (QuadCubeControllers != null)
+            {
+                for (var i = 0; i < QuadCubeControllers.Length; i++)
+                {
+                    QuadCubeControllers[i].StartMovement();
+                }
+            }
+
+            if (TextControllers != null)
+            {
+                for (var i = 0; i < TextControllers.Length; i++)
+                {
+                    TextControllers[i].StartAnimation();
+                    TextControllers[i].ResizeColider();
+                }
             }
         }
     }

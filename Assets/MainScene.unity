@@ -434,15 +434,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4795696125053340, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.099999994
+      value: 0.09999999
       objectReference: {fileID: 0}
     - target: {fileID: 4795696125053340, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.099999994
+      value: 0.09999999
       objectReference: {fileID: 0}
     - target: {fileID: 4795696125053340, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.099999994
+      value: 0.09999999
       objectReference: {fileID: 0}
     - target: {fileID: 114067597515726842, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
         type: 2}
@@ -458,17 +458,22 @@ Prefab:
         type: 2}
       propertyPath: CubeAnimations.Array.data[0]
       value: 
-      objectReference: {fileID: 101588467}
+      objectReference: {fileID: 0}
     - target: {fileID: 114067597515726842, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
         type: 2}
       propertyPath: CubeAnimations.Array.data[1]
       value: 
-      objectReference: {fileID: 101588465}
+      objectReference: {fileID: 0}
     - target: {fileID: 114067597515726842, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
         type: 2}
       propertyPath: CubeAnimations.Array.data[2]
       value: 
-      objectReference: {fileID: 101588463}
+      objectReference: {fileID: 0}
+    - target: {fileID: 114119387636874326, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
+        type: 2}
+      propertyPath: AnchorGameObject
+      value: 
+      objectReference: {fileID: 4308260}
     m_RemovedComponents:
     - {fileID: 64360621349379140, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
     - {fileID: 64587153462928896, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
@@ -478,11 +483,6 @@ Prefab:
     - {fileID: 64870022356995154, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0c11d62ba0af0564c8b51f3cf0d140d7, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &101588453 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1766081355279836, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 101588452}
 --- !u!1 &101588456 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1936939046093660, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
@@ -505,36 +505,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!65 &101588462
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 101588453}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 1, y: 1, z: 1.5}
---- !u!114 &101588463 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114282274873500732, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 101588452}
-  m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
---- !u!114 &101588465 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114328991465062716, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 101588452}
-  m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
---- !u!114 &101588467 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114896245952309664, guid: 0c11d62ba0af0564c8b51f3cf0d140d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 101588452}
-  m_Script: {fileID: 11500000, guid: 1f85b4857c0e0c54090ef156dbb191e1, type: 3}
 --- !u!1 &194866901
 GameObject:
   m_ObjectHideFlags: 0

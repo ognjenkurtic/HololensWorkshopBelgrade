@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Assets.Controllers;
 using Assets.Interfaces;
 using Assets.Services;
 using HoloToolkit;
@@ -23,6 +24,8 @@ namespace Assets
         public void RegisterTypes()
         {
             RegisterType<IMovementService, MovementService>();
+            RegisterType<ISoundService, SoundService>();
+            RegisterType<ISmokeService, SmokeService>();
         }
 
         public static T Resolve<T>()
@@ -68,7 +71,7 @@ namespace Assets
 
             if (!(source is TDestination))
             {
-                throw new Exception(string.Format("Given object is not assignable to {0}.", destinationTypeName));
+                throw new Exception(string.Format("Given object of type {0} is not assignable to {1}.", source.GetType().FullName, destinationTypeName));
             }
 
             if (RegisteredObjects.ContainsKey(destinationTypeName))

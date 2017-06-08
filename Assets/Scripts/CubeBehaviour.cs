@@ -17,11 +17,15 @@ namespace Assets.Scripts
         public GameObject AnchorGameObject;
         public TextBehaviour[] TextObjects;
         public AudioSource AudioSource;
+        public GameObject SmokePrefab;
 
         void Awake()
         {
             _movementService = Registration.Resolve<IMovementService>();
-            _cubeController = new CubeController(NumberOfMoves, _movementService);
+            var soundService = Registration.Resolve<ISoundService>();
+            var smokeService = Registration.Resolve<ISmokeService>();
+
+            _cubeController = new CubeController(NumberOfMoves, _movementService, soundService, smokeService);
         }
 
         public void OnInputClicked(InputClickedEventData eventData)
@@ -49,6 +53,7 @@ namespace Assets.Scripts
             }
 
             _cubeController.AudioSource = AudioSource;
+            _cubeController.SmokePrefab = SmokePrefab;
 
             _cubeController.QuadCubeControllers = CubeAnimations.Select(a => a.QuadCubeController).ToArray();
             _cubeController.TextControllers = TextObjects.Select(x => x.TextController).ToArray();
