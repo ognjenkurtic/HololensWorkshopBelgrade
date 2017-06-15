@@ -20,10 +20,10 @@ namespace Assets.Controllers
             _textAnimator.enabled = true;
         }
 
-        public void OnMouseOver()
-        {
-            _audioSource.Play();
-        }
+        //public void OnMouseOver()
+        //{
+        //    _audioSource.Play();
+        //}
 
         public void ResizeColider()
         {

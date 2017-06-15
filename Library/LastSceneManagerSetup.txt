@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/StefkeAndOgi.unity
+- path: Assets/MainScene.unity
   isLoaded: 1
   isActive: 1

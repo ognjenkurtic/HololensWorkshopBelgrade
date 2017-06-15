@@ -16,9 +16,9 @@ namespace Assets.Scripts
             TextController = new TextController(AnimatorObject, AudioSource, BoxCollider);
         }
 
-        public void OnMouseOver()
-        {
-            TextController.OnMouseOver();
-        }
+        //public void OnMouseOver()
+        //{
+        //    TextController.OnMouseOver();
+        //}
     }
 }

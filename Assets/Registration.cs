@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using Assets.Controllers;
 using Assets.Interfaces;
 using Assets.Services;
-using HoloToolkit;
 using UnityEngine;
 
 namespace Assets

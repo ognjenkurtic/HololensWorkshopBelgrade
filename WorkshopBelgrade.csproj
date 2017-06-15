@@ -382,7 +382,6 @@
     <Compile Include="Assets\Interfaces\IMovementService.cs" />
     <Compile Include="Assets\Interfaces\ISoundService.cs" />
     <Compile Include="Assets\Registration.cs" />
-    <Compile Include="Assets\Script\TestScriptAlbo.cs" />
     <Compile Include="Assets\Scripts\CubeBehaviour.cs" />
     <Compile Include="Assets\Scripts\CubeImageTargetScript.cs" />
     <Compile Include="Assets\Scripts\CubeScript.cs" />

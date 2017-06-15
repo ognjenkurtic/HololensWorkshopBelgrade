@@ -131,23 +131,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Projects\HoloLens\WorkshopBelgrade\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj">
-      <Project>{2a5a9a38-2ec7-4dea-ace0-f2de7cd202e5}</Project>
+      <Project>{ca5ba8ab-94c3-41fe-8c2b-98189fa83233}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
-    <Reference Include="Assembly-UnityScript">
-      <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\Assembly-UnityScript.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Boo.Lang">
-      <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\Boo.Lang.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityScript.Lang">
-      <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\UnityScript.Lang.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="WinRTLegacy">
