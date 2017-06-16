@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <UnityInstallationDir>C:\Program Files\Unity 5.5\Editor\</UnityInstallationDir>
-        <UnityWSASolutionName>Workshop</UnityWSASolutionName>
+        <UnityWSASolutionName>WorkshopTest</UnityWSASolutionName>
         <UnityWSASolutionDir>C:\Projects\HoloLens\WorkshopBelgrade\App\</UnityWSASolutionDir>
         <UnityWSAPlayerDir>C:\Program Files\Unity 5.5\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
         <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
