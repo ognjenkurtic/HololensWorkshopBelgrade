@@ -82,7 +82,6 @@
     <Compile Include="Assets\Controllers\ISmokeService.cs" />
     <Compile Include="Assets\Controllers\QuadCubeController.cs" />
     <Compile Include="Assets\Controllers\QuadCubeScaleController.cs" />
-    <Compile Include="Assets\Controllers\TextController.cs" />
     <Compile Include="Assets\HoloToolkit-Examples\ColorPicker\GazeableColorPicker.cs" />
     <Compile Include="Assets\HoloToolkit-Examples\GazeRuler\Scripts\DeleteLine.cs" />
     <Compile Include="Assets\HoloToolkit-Examples\GazeRuler\Scripts\IGeometry.cs" />
@@ -385,10 +384,11 @@
     <Compile Include="Assets\Scripts\CubeBehaviour.cs" />
     <Compile Include="Assets\Scripts\CubeImageTargetScript.cs" />
     <Compile Include="Assets\Scripts\CubeScript.cs" />
+    <Compile Include="Assets\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Scripts\QuadCubeAnimationBehaviour.cs" />
     <Compile Include="Assets\Scripts\QuadCubeScaleAnimationBehaviour.cs" />
     <Compile Include="Assets\Scripts\SphereDragScript.cs" />
-    <Compile Include="Assets\Scripts\TextBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UserInputManager.cs" />
     <Compile Include="Assets\Services\MovementService.cs" />
     <Compile Include="Assets\Services\SmokeService.cs" />
     <Compile Include="Assets\Services\SoundService.cs" />

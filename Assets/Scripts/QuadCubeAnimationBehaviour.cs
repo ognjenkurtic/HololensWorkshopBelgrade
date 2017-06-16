@@ -11,7 +11,7 @@ namespace Assets.Scripts
 
         public QuadCubeController QuadCubeController { get; protected set; }
 
-        void Awake()
+        void Start()
         {
             MovementService = Registration.Resolve<IMovementService>();
             CreateController();

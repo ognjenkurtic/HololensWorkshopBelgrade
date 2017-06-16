@@ -75,5 +75,16 @@ namespace Assets.Scripts
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
             }
         }
+
+        public void ResetSphere()
+        {
+            if (WorldAnchorManager.Instance.AnchorStore != null)
+            {
+                WorldAnchorManager.Instance.RemoveAnchor(gameObject);
+            }
+
+            _anchorLoaded = false;
+            _anchorCreated = false;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Assets
             RegisterTypes();
         }
 
-        public void RegisterTypes()
+        public static void RegisterTypes()
         {
             RegisterType<IMovementService, MovementService>();
             RegisterType<ISoundService, SoundService>();
@@ -47,13 +47,13 @@ namespace Assets
             throw new Exception(string.Format("Type not registered: {0}", destinationTypeName));
         }
 
-        public void RegisterType<TDestination, TSource>() where TSource : TDestination, new()
+        public static void RegisterType<TDestination, TSource>() where TSource : TDestination, new()
         {
             var destinationTypeName = typeof(TDestination).FullName;
             var sourceTypeName = typeof(TSource).FullName;
             if (RegisteredTypes.ContainsKey(destinationTypeName))
             {
-                RegisteredTypes[destinationTypeName] = typeof(TDestination).FullName;
+                RegisteredTypes[destinationTypeName] = sourceTypeName;
             }
             else
             {

@@ -18,7 +18,7 @@ namespace Assets.Scripts
         public AudioSource AudioSource;
         public GameObject SmokePrefab;
 
-        void Awake()
+        void Start()
         {
             _movementService = Registration.Resolve<IMovementService>();
             var soundService = Registration.Resolve<ISoundService>();
