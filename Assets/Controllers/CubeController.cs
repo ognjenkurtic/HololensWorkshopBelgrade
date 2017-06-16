@@ -17,8 +17,6 @@ namespace Assets.Controllers
 
         public QuadCubeController[] QuadCubeControllers { private get; set; }
 
-        public TextController[] TextControllers { private get; set; }
-
         public AudioSource AudioSource
         {
             set
@@ -85,15 +83,6 @@ namespace Assets.Controllers
                 for (var i = 0; i < QuadCubeControllers.Length; i++)
                 {
                     QuadCubeControllers[i].StartMovement();
-                }
-            }
-
-            if (TextControllers != null)
-            {
-                for (var i = 0; i < TextControllers.Length; i++)
-                {
-                    TextControllers[i].StartAnimation();
-                    TextControllers[i].ResizeColider();
                 }
             }
         }

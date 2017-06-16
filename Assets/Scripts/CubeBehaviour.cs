@@ -15,7 +15,6 @@ namespace Assets.Scripts
 
         public QuadCubeAnimationBehaviour[] CubeAnimations;
         public GameObject AnchorGameObject;
-        public TextBehaviour[] TextObjects;
         public AudioSource AudioSource;
         public GameObject SmokePrefab;
 
@@ -56,7 +55,6 @@ namespace Assets.Scripts
             _cubeController.SmokePrefab = SmokePrefab;
 
             _cubeController.QuadCubeControllers = CubeAnimations.Select(a => a.QuadCubeController).ToArray();
-            _cubeController.TextControllers = TextObjects.Select(x => x.TextController).ToArray();
         }
     }
 }
