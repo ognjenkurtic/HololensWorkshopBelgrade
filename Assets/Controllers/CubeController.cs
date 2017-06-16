@@ -1,4 +1,5 @@
 ﻿using Assets.Interfaces;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Controllers
@@ -32,6 +33,8 @@ namespace Assets.Controllers
                 _smokeService.SetSmokeObject(value);
             }
         }
+
+        public Canvas Canvas;
 
         public CubeController(int numberOfMoves, IMovementService movementService, ISoundService soundService, ISmokeService smokeService)
         {
@@ -85,6 +88,8 @@ namespace Assets.Controllers
                     QuadCubeControllers[i].StartMovement();
                 }
             }
+
+            Canvas.GetComponent<Animator>().enabled = true;
         }
     }
 }

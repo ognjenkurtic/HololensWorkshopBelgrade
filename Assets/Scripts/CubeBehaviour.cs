@@ -17,6 +17,7 @@ namespace Assets.Scripts
         public GameObject AnchorGameObject;
         public AudioSource AudioSource;
         public GameObject SmokePrefab;
+        public Canvas Canvas;
 
         void Awake()
         {
@@ -55,6 +56,7 @@ namespace Assets.Scripts
             _cubeController.SmokePrefab = SmokePrefab;
 
             _cubeController.QuadCubeControllers = CubeAnimations.Select(a => a.QuadCubeController).ToArray();
+            _cubeController.Canvas = Canvas;
         }
     }
 }

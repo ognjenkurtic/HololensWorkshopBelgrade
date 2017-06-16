@@ -5116,8 +5116,9 @@ GameObject:
   - component: {fileID: 680510953}
   - component: {fileID: 680510952}
   - component: {fileID: 680510951}
+  - component: {fileID: 680510955}
   m_Layer: 5
-  m_Name: MainMenu
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5186,16 +5187,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 680510946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 0.0015128668, y: 0.0015128619, z: 0.0015128619}
+  m_LocalPosition: {x: 0, y: 0, z: 1.4399999}
+  m_LocalScale: {x: 0.00034972356, y: 0.00034971882, z: 0.00034971882}
   m_Children:
   - {fileID: 1808769903}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 994755480}
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.109, y: 0.14899999}
+  m_AnchoredPosition: {x: 1.0799999, y: 0.692}
   m_SizeDelta: {x: 550, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &680510951
@@ -5269,6 +5270,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &680510955
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680510946}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12a1b78d396dfcc40906a5d4cb110582, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &687136503
 GameObject:
   m_ObjectHideFlags: 0
@@ -8075,6 +8093,7 @@ MonoBehaviour:
   AudioSource: {fileID: 1636932399}
   SmokePrefab: {fileID: 1829489913795510, guid: 3e9189ad4aa363b438861cc4568f3a80,
     type: 2}
+  Canvas: {fileID: 680510949}
 --- !u!65 &994755479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8126,6 +8145,7 @@ Transform:
   - {fileID: 1540890400}
   - {fileID: 152679060}
   - {fileID: 1636932400}
+  - {fileID: 680510950}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
