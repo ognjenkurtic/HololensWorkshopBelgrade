@@ -3,8 +3,8 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VR.WSA.Persistence;
-using UnityEngine.VR.WSA;
+
+
 using HoloToolkit.Unity.SpatialMapping;
 
 namespace HoloToolkit.Unity
@@ -43,13 +43,13 @@ namespace HoloToolkit.Unity
         /// The WorldAnchorStore for the current application.
         /// Can be null when the application starts.
         /// </summary>
-        public WorldAnchorStore AnchorStore { get; private set; }
+        public UnityEngine.VR.WSA.Persistence.WorldAnchorStore AnchorStore { get; private set; }
 
         /// <summary>
         /// Callback function that contains the WorldAnchorStore object.
         /// </summary>
         /// <param name="anchorStore">The WorldAnchorStore to cache.</param>
-        private void AnchorStoreReady(WorldAnchorStore anchorStore)
+        private void AnchorStoreReady(UnityEngine.VR.WSA.Persistence.WorldAnchorStore anchorStore)
         {
             print("Anchor store ready");
             AnchorStore = anchorStore;
@@ -63,7 +63,7 @@ namespace HoloToolkit.Unity
             base.Awake();
 
             AnchorStore = null;
-            WorldAnchorStore.GetAsync(AnchorStoreReady);
+            UnityEngine.VR.WSA.Persistence.WorldAnchorStore.GetAsync(AnchorStoreReady);
         }
 
         /// <summary>
@@ -150,11 +150,11 @@ namespace HoloToolkit.Unity
                 Debug.LogError("remove all anchors called before anchor store is ready.");
             }
 
-            WorldAnchor[] anchors = FindObjectsOfType<WorldAnchor>();
+            UnityEngine.VR.WSA.WorldAnchor[] anchors = FindObjectsOfType<UnityEngine.VR.WSA.WorldAnchor>();
 
             if (anchors != null)
             {
-                foreach (WorldAnchor anchor in anchors)
+                foreach (UnityEngine.VR.WSA.WorldAnchor anchor in anchors)
                 {
                     // Don't remove SpatialMapping anchors if exists
                     if (spatialMappingManager == null ||
@@ -190,7 +190,7 @@ namespace HoloToolkit.Unity
                     }
 
                     // Try to load a previously saved world anchor.
-                    WorldAnchor savedAnchor = AnchorStore.Load(anchorName, gameObjectToAnchor);
+                    UnityEngine.VR.WSA.WorldAnchor savedAnchor = AnchorStore.Load(anchorName, gameObjectToAnchor);
                     if (savedAnchor == null)
                     {
                         // Either world anchor was not saved / does not exist or has a different name.
@@ -214,7 +214,7 @@ namespace HoloToolkit.Unity
                     }
 
                     GameObject gameObjectToUnanchor = anchorAttachmentInfo.GameObjectToAnchor;
-                    var anchor = gameObjectToUnanchor.GetComponent<WorldAnchor>();
+                    var anchor = gameObjectToUnanchor.GetComponent<UnityEngine.VR.WSA.WorldAnchor>();
 
                     if (anchor != null)
                     {
@@ -237,7 +237,7 @@ namespace HoloToolkit.Unity
         /// <param name="anchorName">The name to give to the anchor.</param>
         private void CreateAnchor(GameObject gameObjectToAnchor, string anchorName)
         {
-            var anchor = gameObjectToAnchor.AddComponent<WorldAnchor>();
+            var anchor = gameObjectToAnchor.AddComponent<UnityEngine.VR.WSA.WorldAnchor>();
             anchor.name = anchorName;
 
             // Sometimes the anchor is located immediately. In that case it can be saved immediately.
@@ -258,7 +258,7 @@ namespace HoloToolkit.Unity
         /// </summary>
         /// <param name="self">The anchor that is reporting a tracking changed event.</param>
         /// <param name="located">Indicates if the anchor is located or not located.</param>
-        private void Anchor_OnTrackingChanged(WorldAnchor self, bool located)
+        private void Anchor_OnTrackingChanged(UnityEngine.VR.WSA.WorldAnchor self, bool located)
         {
             if (located)
             {
@@ -279,7 +279,7 @@ namespace HoloToolkit.Unity
         /// Saves the anchor to the anchor store.
         /// </summary>
         /// <param name="anchor"></param>
-        private void SaveAnchor(WorldAnchor anchor)
+        private void SaveAnchor(UnityEngine.VR.WSA.WorldAnchor anchor)
         {
             // Save the anchor to persist holograms across sessions.
             if (AnchorStore.Save(anchor.name, anchor))

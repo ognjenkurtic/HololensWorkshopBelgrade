@@ -6,7 +6,7 @@ using System.Collections;
 using HoloToolkit.Unity;
 using System;
 using UnityEngine.UI;
-using UnityEngine.VR.WSA.Input;
+
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
@@ -60,7 +60,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 
             // Events
             SpatialUnderstanding.Instance.ScanStateChanged += OnScanStateChanged;
-            InteractionManager.SourcePressed += OnAirTap;
+            UnityEngine.VR.WSA.Input.InteractionManager.SourcePressed += OnAirTap;
         }
 
         protected override void OnDestroy()
@@ -69,7 +69,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             {
                 SpatialUnderstanding.Instance.ScanStateChanged -= OnScanStateChanged;
             }
-            InteractionManager.SourcePressed -= OnAirTap;
+            UnityEngine.VR.WSA.Input.InteractionManager.SourcePressed -= OnAirTap;
 
             base.OnDestroy();
         }
@@ -169,7 +169,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             Debug.Log("PlaceMenu - InFrontOfUser");
         }
 
-        private void OnAirTap(InteractionSourceState state)
+        private void OnAirTap(UnityEngine.VR.WSA.Input.InteractionSourceState state)
         {
             // Try to intersect one of the buttons
             Vector3 hitPos, hitNormal;

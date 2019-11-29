@@ -33,7 +33,7 @@ namespace Assets.Controllers
             }
         }
 
-        public Canvas Canvas;
+        public GameObject Menu { get; set; }
 
         public CubeController(int numberOfMoves, IMovementService movementService, ISoundService soundService, ISmokeService smokeService)
         {
@@ -88,7 +88,25 @@ namespace Assets.Controllers
                 }
             }
 
-            Canvas.GetComponent<Animator>().enabled = true;
+            EnableMenu();
+        }
+
+        private void EnableMenu()
+        {
+            SetMenuActiveState(true);
+        }
+
+        private void SetMenuActiveState(bool activeState)
+        {
+            foreach (Transform child in Menu.transform)
+            {
+                child.gameObject.SetActive(activeState);
+            }
+        }
+
+        public void DisableMenu()
+        {
+            SetMenuActiveState(false);
         }
     }
 }

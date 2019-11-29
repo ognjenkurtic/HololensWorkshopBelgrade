@@ -1,7 +1,8 @@
 ﻿using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
+using HoloToolkit.Unity.SpatialMapping;
 using UnityEngine;
-using UnityEngine.VR.WSA;
+
 
 namespace Assets.Scripts
 {
@@ -14,10 +15,12 @@ namespace Assets.Scripts
         {
             if (!_anchorLoaded)
             {
-                var anchor = gameObject.GetComponent<WorldAnchor>();
+                var anchor = gameObject.GetComponent<UnityEngine.VR.WSA.WorldAnchor>();
                 if (anchor != null)
                 {
                     InitializeObjectFromAnchor(anchor);
+                    SpatialMappingManager.Instance.gameObject.SetActive(false);
+                    SpatialUnderstanding.Instance.gameObject.SetActive(false);
                 }
 
                 if (WorldAnchorManager.Instance != null && WorldAnchorManager.Instance.AnchorStore != null)
@@ -26,12 +29,14 @@ namespace Assets.Scripts
                     if (anchor2 != null)
                     {
                         InitializeObjectFromAnchor(anchor2);
+                        SpatialMappingManager.Instance.gameObject.SetActive(false);
+                        SpatialUnderstanding.Instance.gameObject.SetActive(false);
                     }
                 }
             }
         }
 
-        private void InitializeObjectFromAnchor(WorldAnchor anchor)
+        private void InitializeObjectFromAnchor(UnityEngine.VR.WSA.WorldAnchor anchor)
         {
             gameObject.transform.position = anchor.transform.position;
             gameObject.GetComponent<HandDraggable>().IsDraggingEnabled = false;
@@ -48,7 +53,7 @@ namespace Assets.Scripts
 
             if (!_anchorLoaded && WorldAnchorManager.Instance.AnchorStore != null)
             {
-                var anchor = gameObject.GetComponent<WorldAnchor>();
+                var anchor = gameObject.GetComponent<UnityEngine.VR.WSA.WorldAnchor>();
                 if (anchor != null)
                 {
                     _anchorLoaded = true;
@@ -72,7 +77,9 @@ namespace Assets.Scripts
             {
                 _anchorCreated = true;
                 WorldAnchorManager.Instance.AttachAnchor(gameObject, "Sphere");
-                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                //gameObject.GetComponent<MeshRenderer>().enabled = false;
+                SpatialMappingManager.Instance.gameObject.SetActive(false);
+                SpatialUnderstanding.Instance.gameObject.SetActive(false);
             }
         }
 
@@ -85,6 +92,8 @@ namespace Assets.Scripts
 
             _anchorLoaded = false;
             _anchorCreated = false;
+            SpatialMappingManager.Instance.gameObject.SetActive(true);
+            SpatialUnderstanding.Instance.gameObject.SetActive(true);
         }
     }
 }

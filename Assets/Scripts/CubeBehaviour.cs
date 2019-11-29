@@ -17,7 +17,7 @@ namespace Assets.Scripts
         public GameObject AnchorGameObject;
         public AudioSource AudioSource;
         public GameObject SmokePrefab;
-        public Canvas Canvas;
+        public GameObject Menu;
 
         void Start()
         {
@@ -25,7 +25,12 @@ namespace Assets.Scripts
             var soundService = Registration.Resolve<ISoundService>();
             var smokeService = Registration.Resolve<ISmokeService>();
 
-            _cubeController = new CubeController(NumberOfMoves, _movementService, soundService, smokeService);
+            _cubeController = new CubeController(NumberOfMoves, _movementService, soundService, smokeService)
+            {
+                Menu = Menu
+            };
+
+            _cubeController.DisableMenu();
         }
 
         public void OnInputClicked(InputClickedEventData eventData)
@@ -56,7 +61,7 @@ namespace Assets.Scripts
             _cubeController.SmokePrefab = SmokePrefab;
 
             _cubeController.QuadCubeControllers = CubeAnimations.Select(a => a.QuadCubeController).ToArray();
-            _cubeController.Canvas = Canvas;
+            _cubeController.Menu = Menu;
         }
     }
 }
